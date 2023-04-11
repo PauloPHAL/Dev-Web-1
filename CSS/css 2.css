@@ -1,0 +1,23 @@
+*{
+    background-color: aqua;
+}
+
+p{
+    color:blue;
+    font-weight: bold;
+    background-color: seagreen;
+}
+
+/* h1{
+    text-align: center;
+} */
+
+.centraliza{
+    text-align: center;
+    color: brown;
+    
+}
+
+#paragrafoprincipal{
+    background-color: coral;
+}
