@@ -1,0 +1,53 @@
+.faixa{
+    display: inline-block; 
+    width: 33.333%; 
+    height: 100%;
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      margin: 0;
+    }
+    .faixa-direita{
+        background-color: green;
+    }
+    .faixa-meio{
+        background-color: white;
+    }
+    .faixa-esquerda{
+        background-color: orange;
+    }
+  }
+  
+  /* Estilos para tablets */
+  @media only screen and (min-width: 601px) and (max-width: 900px) {
+    body {
+      margin: 0;
+    }
+    .faixa-direita{
+        background-color: brown;
+    }
+    .faixa-meio{
+        background-color: blueviolet;
+    }
+    .faixa-esquerda{
+        background-color: blueviolet;
+    }
+  }
+  
+  /* Estilos para desktops */
+  @media only screen and (min-width: 901px) {
+    body {
+      margin: 0;
+    }
+    .faixa-direita{
+        background-color: green;
+    }
+    .faixa-meio{
+        background-color: white;
+    }
+    .faixa-esquerda{
+        background-color: red;
+    }
+  }
