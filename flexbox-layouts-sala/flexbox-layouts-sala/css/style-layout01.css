@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    font-family: Helvetica;
+}
+
+#topo{
+    width: 100%;
+    height: 70px;
+    background-color: #1D1E20;
+    display: flex;
+}
+
+.logo{
+    width: 50%;
+    height: 100%;
+    color: white;
+    font-size: 2rem;
+    padding: 15px 0px 0px 30px;
+}
+
+.menu{
+    width: 50%;
+    height: 100%;
+    margin-right: 30px;
+}
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    /* gap: 2rem; */
+}
+
+.menu ul li{
+    color: white;
+    padding: 5px 20px 5px 20px;
+    font-size: 1.2rem;
+    /* border: 1px solid tomato; */
+}
+
+#conteudo{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.container{
+    max-width: 720px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    /* border: 1px solid tomato; */
+    margin: 0 auto;
+    gap: 19px;
+}
+
+.item{
+    width: 227px;
+}
+
+.item .img{
+    width: 100%;
+    height: 150px;
+    background-color: grey;
+}
+
+.item .img-titulo{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
