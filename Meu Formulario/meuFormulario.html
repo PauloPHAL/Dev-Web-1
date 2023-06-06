@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Formulario</title>
+</head>
+<body>
+    
+    <form method="post" action="salvar.html">
+
+        <div>
+            <label for="txtCep">CEP: </label>
+            <input type="text" id="txtCep" name="txtCep" size="15" maxlength="8" placeholder="Digite seu CEP:" onchange="pesquisaCep(this.value)">
+            <div>
+                <br>
+                <label for="estado">Estado:</label>
+                <select name="estado" id="estado">
+                    <option value=""></option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="MG">Minas Gerais</option>
+                </select>           
+                <label for="txtCidade">Cidade: </label>
+                <input type="text" id="txtCidade" name="txtCidade" size="40"> 
+                <label for="txtBairro">Bairro:</label>
+                <input type="tel" id="txtBairro" name="txtBairro" size="40">
+            </div>
+            <br>
+            <label for="txtRua">Rua: </label>
+            <input type="text" id="txtRua" name="txtRua" size="40" maxlength="40" placeholder="Digite sua Rua:"> 
+            <label for="txtNumero">Numero:</label>
+            <input type="tel" id="txtNumero" name="txtNumero" size="10">
+        </div>
+        <br>
+        <div>
+            <label for="txtComplemento">Complemento:</label>
+            <br>
+            <textarea name="txtComplemento" id="txtComplemento" cols="50" rows="10" maxlength="100" onkeyup="contaTexto(this.value.length)"></textarea>
+            <br>
+            <span id="qtdCaracteres">0/100</span>
+        </div>
+        <br>
+
+    </form>
+
+    <script>
+        function pesquisaCep(cep){
+            let url = "https://viacep.com.br/ws/" + cep + "/json/";
+            fetch(url).then(res => {
+                return res.json();
+            }).then(data => {
+                let campos = JSON.parse(JSON.stringify(data));
+                document.getElementById("txtRua").value = campos.localidade;
+            });
+        }
+        function contaTexto(texto){
+            document.getElementById("qtdCaracteres").innerHTML = texto +"/100";
+        }
+    </script>
+
+</body>
+</html>
