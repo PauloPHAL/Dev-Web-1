@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .sup-inf{
     width: 100%; 
     height: 40%;
@@ -27,4 +28,35 @@
 .azul-inf{
     width: 65%; 
     background-color: blue;
+=======
+.sup-inf{
+    width: 100%; 
+    height: 40%;
+}
+
+.meio{
+    width: 100%; 
+    height: 20%; 
+    background-color: yellow;
+}
+
+.interna{
+    height: 100%; 
+    display: inline-block;
+}
+
+.azul-sup{
+    width: 25%; 
+    background-color: blue;
+}
+
+.amarelo{
+    width: 10%; 
+    background-color: yellow;
+}
+
+.azul-inf{
+    width: 65%; 
+    background-color: blue;
+>>>>>>> be75d6e316674f723c080aac86bf6940e809c851
 }

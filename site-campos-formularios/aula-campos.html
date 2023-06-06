@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campos de Formulários</title>
+
+    <style>
+        div{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post" action="salvar.html">
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" id="nome" name="nome" size="50" maxlength="50" placeholder="Digite seu Nome Completo">
+
+            <input type="button" id="btnome1" name="btnome1" value="Enviar 1" onclick="funcaoNome1()">
+            <button type="button" id="btnome2" name="btnome2" onclick="funcaoNome2()">Enviar 2</button>
+            
+            <br>
+            <span id="nomeaux">Vazio</span>
+        </div>
+
+        <div>
+            <label for="cor">Cor de Fundo da tela:</label>
+            <input type="color" id="cor" name="cor" onchange="mudaCor(this.value)">
+            <span id="coraux">#000000</span>
+        </div>
+
+        <div>
+            <label for="arquivo">Arquivo:</label>
+            <input type="file" id="arquivo" name="arquivo">
+        </div>
+
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" size="10" onblur="checaSenha()">
+            
+            <input type="button" id="btversenha" name="btversenha" value="ver" onclick="verSenha('senha', 'btversenha')">
+            
+            <label for="senharep">Repetir Senha:</label>
+            <input type="password" id="senharep" name="senharep" size="10" onblur="checaSenha()">
+
+            <input type="button" id="btversenharep" name="btversenharep" value="ver" onclick="verSenha('senharep', 'btversenharep')">
+        </div>
+
+        <div>
+            Você possui deficiência?
+            <br>
+            <input type="radio" id="def01" name="def" value="1" onclick="desativarCampo('deftexto')">
+            <label for="def01">Auditiva</label>
+            
+            <input type="radio" id="def02" name="def" value="2" onclick="desativarCampo('deftexto')">
+            <label for="def02">Visual</label>
+            
+            <input type="radio" id="def03" name="def" value="3" onclick="desativarCampo('deftexto')">
+            <label for="def03">Motora</label>
+            
+            <input type="radio" id="def04" name="def" value="4" onclick="ativarCampo('deftexto')">
+            <label for="def04">Outra</label>
+            
+            <input type="text" id="deftexto" name="deftexto" size="20" disabled>
+        </div>
+
+        <div>
+            Você possui deficiência?
+            <br>
+            <input type="checkbox" id="defcheck01" name="defcheck01" value="1">
+            <label for="defcheck01">Auditiva</label>
+
+            <input type="checkbox" id="defcheck02" name="defcheck02" value="2">
+            <label for="defcheck02">Visual</label>
+
+            <input type="checkbox" id="defcheck03" name="defcheck03" value="3">
+            <label for="defcheck03">Motora</label>
+
+            <input type="checkbox" id="defcheck04" name="defcheck04" value="4" onclick="ativardesativarCheck(this, 'defchecktexto')">
+            <label for="defcheck04">Outra</label>
+
+            <input type="text" id="defchecktexto" name="defchecktexto" size="20" disabled>
+        </div>
+
+        <div>
+            <label for="volume">Volume:</label>
+            <input type="range" id="volume" name="volume" min="10" max="20" value="10" step="0.5" onchange="mostraVolume(this.value)">
+            <span id="volumeaux"></span>
+        </div>
+
+        <div>
+            <label for="datanasc">Data Nascimento:</label>
+            <input type="date" id="datanasc" name="datanasc" value="2023-05-01">
+        </div>
+
+        <div>
+            <label for="datahora">Data e Hora de Nascimento:</label>
+            <input type="datetime-local" id="datahora" name="datahora" value="2023-05-01 14:00">
+        </div>
+
+        <div>
+            <label for="mes">Mês e Ano de Nascimento</label>
+            <input type="month" id="mes" name="mes">
+        </div>
+
+        <div>
+            <label for="semana">Semana:</label>
+            <input type="week" id="semana" name="semana">
+        </div>
+
+        <div>
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora">
+        </div>
+    </form>
+
+<script>
+window.onload = function(){
+    let today = new Date().toISOString().slice(0, 10);
+    document.getElementById("datanasc").value = today;
+};
+
+function funcaoNome1(){
+    let nome = document.getElementById("nome").value;
+    alert("Olá "+nome+"!");
+}
+
+function funcaoNome2(){
+    let nome = document.getElementById("nome").value;
+    document.getElementById("nomeaux").innerHTML = "Olá "+nome+"!";
+}
+
+function mudaCor(cor){
+    document.getElementById("coraux").innerHTML = cor;
+}
+
+function verSenha(campo_senha, botao){
+    let senha = document.getElementById(campo_senha);
+    let btversenha = document.getElementById(botao);
+
+    if(senha.type == "password"){
+        senha.type = "text";
+        btversenha.value = "esconder";
+    }
+    else{
+        senha.type = "password";
+        btversenha.value = "ver";
+    }
+}
+
+function checaSenha(){
+    let senha = document.getElementById("senha");
+    let senharep = document.getElementById("senharep");
+
+    if(senha.value != "" && senharep.value != "" && senha.value != senharep.value){
+        senha.value = "";
+        senharep.value = "";
+        alert("O campo Senha e Repetir Senha devem ser iguais.");
+        senha.focus();
+    }
+}
+
+function ativarCampo(campo_ativacao){
+    document.getElementById(campo_ativacao).disabled = false;
+    document.getElementById(campo_ativacao).focus();
+}
+
+function desativarCampo(campo_desativacao){
+    document.getElementById(campo_desativacao).disabled = true;
+    document.getElementById(campo_desativacao).value = "";
+}
+
+function ativardesativarCheck(campo_check, campo_texto){
+    if(campo_check.checked){
+        document.getElementById(campo_texto).disabled = false;
+        document.getElementById(campo_texto).focus();
+    }
+    else{
+        document.getElementById(campo_texto).disabled = true;
+        document.getElementById(campo_texto).value = "";
+    }
+}
+
+function mostraVolume(volume){
+    document.getElementById("volumeaux").innerHTML = volume;
+}
+</script>
+
+</body>
+</html>
