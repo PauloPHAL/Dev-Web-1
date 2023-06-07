@@ -53,7 +53,7 @@
                 return res.json();
             }).then(data => {
                 let campos = JSON.parse(JSON.stringify(data));
-                document.getElementById("txtRua").value = campos.localidade;
+                document.getElementById("txtCidade").value = campos.localidade;
             });
         }
         function contaTexto(texto){
